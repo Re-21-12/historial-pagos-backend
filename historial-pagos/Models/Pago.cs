@@ -1,14 +1,35 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace historial_pagos.Models
 {
-    //[Table("Pagos")]
     public class Pago
     {
-        public int Id { get; set; }
-        public string Titulo { get; set; }
-        public string Descripcion { get; set; }
-        public decimal Cantidad { get; set; }
-        public string Fecha { get; set; }
+        [Key]  // Define que es la clave primaria
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]  // Activa el autoincremento
+        public int Id
+        {
+            get; set;
+        }
+        [Required]
+        public string Titulo
+        {
+            get; set;
+        }
+        public string Descripcion
+        {
+            get; set;
+        }
+        [Required]
+
+        public decimal Cantidad
+        {
+            get; set;
+        }
+        [Required]
+        public string Fecha
+        {
+            get; set;
+        }
     }
 }
